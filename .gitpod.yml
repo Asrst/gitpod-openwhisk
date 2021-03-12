@@ -1,0 +1,28 @@
+image:
+  file: .gitpod.Dockerfile
+
+# location to open in code editor explorer
+workspaceLocation: "."
+
+# This will expose all necessary ports
+ports:
+  - port: 8000
+    onOpen: ignore
+  - port: 3233
+    onOpen: ignore
+  - port: 3232
+    onOpen: open-browser
+
+# commands to run
+tasks:
+  - before: find ./ -iname "*.sh" -exec chmod +x {} +
+    init: cd /workspace/gitpod-openwhisk && ./run.sh
+    command: cd /workspace
+  - command: |
+      cd /workspace
+      cp -r gitpod-openwhisk/.theia /workspace
+
+# vscode extension to install for project
+vscode:
+  extensions:
+    - formulahendry.auto-close-tag@0.5.9:JZIefALANqOfhSK1TU4+Fw==

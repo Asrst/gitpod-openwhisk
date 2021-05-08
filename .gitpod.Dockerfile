@@ -8,4 +8,5 @@ WORKDIR /workspace
 RUN sudo chown -R gitpod /workspace
 
 USER gitpod
+RUN cd /workspace
 RUN git clone https://github.com/apache/openwhisk.git && cd openwhisk

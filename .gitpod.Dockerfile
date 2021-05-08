@@ -4,7 +4,9 @@ FROM gitpod/workspace-full
 
 # USER root
 # RUN apt-get update &&
-USER gitpod
 WORKDIR /workspace
+RUN sudo chown -R gitpod /workspace
+
+USER gitpod
 RUN git clone https://github.com/apache/openwhisk.git && cd openwhisk
 RUN ./gradlew core:standalone:bootRun

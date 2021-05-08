@@ -9,4 +9,3 @@ RUN sudo chown -R gitpod /workspace
 
 USER gitpod
 RUN git clone https://github.com/apache/openwhisk.git && cd openwhisk
-RUN ./gradlew core:standalone:bootRun

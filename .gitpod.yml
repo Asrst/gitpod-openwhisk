@@ -16,11 +16,11 @@ ports:
 # commands to run
 tasks:
   - before: find ./ -iname "*.sh" -exec chmod +x {} +
-    init: cd /workspace && ./gitpod-openwhisk/run.sh
+    init: cd /workspace && rm -rf openwhisk && git clone -b 1.0.0 https://github.com/apache/openwhisk.git
     command: cd /workspace
   - command: |
-      cd /workspace
-      cp -r gitpod-openwhisk/.theia /workspace
+      cd /workspace/openwhisk
+      ./gradlew core:standalone:bootRun
 
 # vscode extension to install for project
 vscode:

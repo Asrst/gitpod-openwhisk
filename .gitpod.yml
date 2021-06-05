@@ -16,7 +16,7 @@ ports:
 # commands to run
 tasks:
   - before: find ./ -iname "*.sh" -exec chmod +x {} +
-    init: cd /workspace/gitpod-openwhisk && ./run.sh
+    init: cd /workspace && ./gitpod-openwhisk/run.sh
     command: cd /workspace
   - command: |
       cd /workspace
